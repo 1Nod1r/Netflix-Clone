@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86037C38281061ED00BDE4D2 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86037C37281061ED00BDE4D2 /* HeroHeaderUIView.swift */; };
+		8605AB192813EFDE009AD5F9 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8605AB182813EFDE009AD5F9 /* SearchResultsViewController.swift */; };
 		86118604281293860018FD5D /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86118603281293860018FD5D /* UpcomingViewController.swift */; };
 		86118606281294E10018FD5D /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86118605281294E10018FD5D /* TitleTableViewCell.swift */; };
 		8638395E280ECABC00FFC1F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8638395D280ECABC00FFC1F4 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		095E1FCBE153DC147246B3EE /* Pods-Netflix Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Clone.release.xcconfig"; path = "Target Support Files/Pods-Netflix Clone/Pods-Netflix Clone.release.xcconfig"; sourceTree = "<group>"; };
 		78D41D3E3EA76DCC49A543E0 /* Pods_Netflix_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86037C37281061ED00BDE4D2 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		8605AB182813EFDE009AD5F9 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		86118603281293860018FD5D /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		86118605281294E10018FD5D /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		8638395A280ECABC00FFC1F4 /* Netflix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +110,6 @@
 				86FB0EF6280F2686003CB9A0 /* Views */,
 				86FB0EF7280F268A003CB9A0 /* ViewModels */,
 				86383971280ECCCF00FFC1F4 /* Controllers */,
-				86383961280ECABC00FFC1F4 /* MainTabBarViewController.swift */,
 				8638395D280ECABC00FFC1F4 /* AppDelegate.swift */,
 				8638395F280ECABC00FFC1F4 /* SceneDelegate.swift */,
 				86383966280ECABE00FFC1F4 /* Assets.xcassets */,
@@ -121,12 +122,30 @@
 		86383971280ECCCF00FFC1F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				86A6E02E2813FDB10056FC00 /* Core */,
+				86A6E02F2813FDBC0056FC00 /* General */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		86A6E02E2813FDB10056FC00 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86383961280ECABC00FFC1F4 /* MainTabBarViewController.swift */,
 				86383974280ECCF000FFC1F4 /* HomeViewController.swift */,
 				86118603281293860018FD5D /* UpcomingViewController.swift */,
 				86383976280ECD3B00FFC1F4 /* SearchViewController.swift */,
 				86383978280ECD6A00FFC1F4 /* DownloadsViewController.swift */,
 			);
-			path = Controllers;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		86A6E02F2813FDBC0056FC00 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8605AB182813EFDE009AD5F9 /* SearchResultsViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		86FB0EF6280F2686003CB9A0 /* Views */ = {
@@ -295,6 +314,7 @@
 				86037C38281061ED00BDE4D2 /* HeroHeaderUIView.swift in Sources */,
 				86383979280ECD6A00FFC1F4 /* DownloadsViewController.swift in Sources */,
 				86F9C6F22811539500998F75 /* Extensions.swift in Sources */,
+				8605AB192813EFDE009AD5F9 /* SearchResultsViewController.swift in Sources */,
 				86383962280ECABC00FFC1F4 /* MainTabBarViewController.swift in Sources */,
 				8638395E280ECABC00FFC1F4 /* AppDelegate.swift in Sources */,
 				86C170A92810946500D8891A /* Title.swift in Sources */,
