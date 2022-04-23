@@ -4,7 +4,7 @@
 //
 //  Created by Nodirbek on 19/04/22.
 //
-//sda
+//
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
