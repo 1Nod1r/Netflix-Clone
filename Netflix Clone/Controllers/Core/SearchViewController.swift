@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     private var titles: [Title] = [Title]()
     
     let searchController: UISearchController = {
@@ -33,6 +33,8 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
+        navigationController?.navigationBar.tintColor = .label
+        searchController.searchResultsUpdater = self
         
         view.addSubview(discoverTable)
         discoverTable.delegate = self
@@ -58,7 +60,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,12 +73,35 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let model = titles[indexPath.row]
-        cell.configure(with: TitleViewModel(titleName: model.original_title ?? model.original_name ?? "Unknown" , posterURL: model.poster_path ?? "")) 
+        cell.configure(with: TitleViewModel(titleName: model.original_title ?? model.original_name ?? "Unknown" , posterURL: model.poster_path ?? ""))
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchbar = searchController.searchBar
+        
+        guard let query = searchbar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchResultsViewController else { return }
+        APICaller.shared.search(with: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let titles):
+                    resultsController.titles = titles
+                    resultsController.searchResultsCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
     
