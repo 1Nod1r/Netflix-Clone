@@ -27,7 +27,9 @@ class DownloadsViewController: UIViewController {
         
         downloadedTable.delegate = self
         downloadedTable.dataSource = self
-        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) {[weak self] _ in
+            self?.fetchLocalStorageForDownload()
+        }
         fetchLocalStorageForDownload()
     }
     
@@ -88,6 +90,32 @@ extension DownloadsViewController: UITableViewDataSource, UITableViewDelegate {
             case .failure(let error):
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            DispatchQueue.main.async {
+                DataPersistenceManager.shared.deleteItemWith(model: self.titles[indexPath.row]) {[weak self] result in
+                    switch result {
+                    case .success():
+                        print("deleted from database")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    self?.titles.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                
+            }
+          
+        case .none:
+            break
+        case .insert:
+            break
+        @unknown default:
+            break
         }
     }
 
