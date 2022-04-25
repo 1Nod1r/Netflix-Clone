@@ -7,10 +7,12 @@
 
 import Foundation
 
+//API to test AIzaSyDqX8axTGeNpXRiISTGL7Tya7fjKJDYi4g
+
 struct Constants {
     static let APIKey = "9f1fe11b9ceaee8f8b6c6206c217f6dd"
     static let baseUrl = "https://api.themoviedb.org"
-    static let YoutubeAPI_Key = "AIzaSyCmL--WtNlIMm1DU0AQuYdAIcnEWQTyxtI"
+    static let YoutubeAPI_Key = "AIzaSyBUORPDGlREnv-_9T2P4lLn6b2FVP6kub0"
     static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
 }
 
@@ -146,6 +148,7 @@ class APICaller {
                 completion(.success(results.items[0]))
             }catch {
                 completion(.failure(APIErrors.failedToGetData))
+                print(error.localizedDescription)
             }
         }
         task.resume()

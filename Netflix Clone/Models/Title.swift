@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TrendingTitleResponse:Codable {
+struct TrendingTitleResponse: Codable {
     let results: [Title]
 }
 
-struct Title:Codable {
+struct Title: Codable {
     let id: Int
     let media_type: String?
     let original_name: String?

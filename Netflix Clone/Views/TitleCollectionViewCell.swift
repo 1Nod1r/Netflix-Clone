@@ -10,7 +10,6 @@ import SDWebImage
 
 class TitleCollectionViewCell: UICollectionViewCell {
     
-    
     static let identifier = "TitleCollectionViewCell"
     
     private let posterImageView: UIImageView = {
